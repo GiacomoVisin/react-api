@@ -39,7 +39,7 @@ function App() {
 
   return (
     <>
-      <h1 className="mb-3"> Actors and Actress list</h1>
+      <h1 className="mb-3"> Actress list</h1>
       <div className="container">
         <div className="row">
           {actress.map((actress) => (
@@ -49,8 +49,29 @@ function App() {
           ))}
         </div>
       </div>
+
+
+      <hr />
+
+      <h2> Actors list</h2>
+
+         <div className="container">
+        <div className="row">
+          {actors.map((actors) => (
+            <div className="col col-lg-4 col-md-6 col-sm-6">
+              <Card key={actors.id} actress={actors} />
+            </div>
+          ))}
+        </div>
+      </div>
     </>
   )
+
+
+
+
+  
+
 }
 
 export default App
