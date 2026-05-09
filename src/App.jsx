@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import Card from "./components/Card"
 
 
 
@@ -26,7 +27,7 @@ function App() {
   useEffect(() => {
     fetch(api2)
       .then(res => res.json())
-      .then(actress => {
+      .then(actors => {
         console.log(actors);
         setActors(actors)
 
@@ -38,13 +39,15 @@ function App() {
 
   return (
     <>
-      <h1> Actors and Actress list</h1>
-      <div>
-        <ul>
+      <h1 className="mb-3"> Actors and Actress list</h1>
+      <div className="container">
+        <div className="row">
           {actress.map((actress) => (
-            <li key={actress.id}>{actress.name}</li>
+            <div className="col col-lg-4 col-md-6 col-sm-6">
+              <Card key={actress.id} actress={actress} />
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </>
   )
