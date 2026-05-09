@@ -35,6 +35,7 @@ function App() {
       })
   }, []) 
 
+
 useEffect(() => {
   fetch(api)
     .then(res => res.json())
@@ -69,7 +70,7 @@ useEffect(() => {
 
       <hr />
 
-      <h2> Actors list</h2>
+      <h2 className="mb-3"> Actors list</h2>
 
          <div className="container">
         <div className="row">
