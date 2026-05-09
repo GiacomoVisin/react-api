@@ -7,11 +7,12 @@ function App() {
 
   const [actress, setActress] = useState([])
   const [actors, setActors] = useState([])
+  const [actorsAndActress, setActorsAndActress] = useState([])
   const api = "https://lanciweb.github.io/demo/api/actresses/"
   const api2 = "https://lanciweb.github.io/demo/api/actors/"
 
 
-  useEffect(() => {
+   useEffect(() => {
     console.log("useEffect Test");
 
     fetch(api)
@@ -32,8 +33,23 @@ function App() {
         setActors(actors)
 
       })
-  }, [])
+  }, []) 
 
+useEffect(() => {
+  fetch(api)
+    .then(res => res.json())
+    .then(actressData => {
+      setActorsAndActress(prev => [...prev, ...actressData]);
+    });
+
+  fetch(api2)
+    .then(res => res.json())
+    .then(actorsData => {
+      setActorsAndActress(prev => [...prev, ...actorsData]);
+      console.log(actorsAndActress);
+      
+    });
+}, []);
 
 
 
